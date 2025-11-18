@@ -341,7 +341,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-<HeroSection />
+
 
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}

@@ -67,9 +67,9 @@ const Navbar = () => {
       text: "About Us",
       submenu: [
         { href: "/aboutus", text: "Our Heritage" },
-        { href: "/careers", text: "Water Today" },
+        { href: "/watertoday", text: "Water Today" },
         { href: "/achievements", text: "Achievements" },
-        { href: "/careers", text: "Our Leadership" },
+        { href: "/ourleadership", text: "Our Leadership" },
         { href: "/careers", text: "Careers" },
         { href: "/faqs", text: "FAQs" },
       ]
