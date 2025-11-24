@@ -17,6 +17,10 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['gsap', 'react-awesome-reveal'],
+    turbo: {
+      loaders: {},
+      enabled: false, // Disable Turbopack, force webpack
+    },
   },
   
   // Webpack optimization

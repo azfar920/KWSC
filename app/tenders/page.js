@@ -345,15 +345,12 @@ export default function Tenders() {
       {loading && <Loader />}
 
       {/* Hero Section */}
-      <section className="relative h-screen transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex justify-center items-center">
-        <div className="absolute inset-0 bg-blue-900/60 z-0"></div>
-
-        <div className="relative z-[1] max-w-[75%] m-20 mx-auto flex items-center justify-center text-center">
-          <div className="w-[85%]">
-            <h2 className="text-[8vh] font-extrabold tracking-tight">Tenders</h2>
-            <p className="mt-6 text-[3.5vh] font-light">Official tender notices, procurement opportunities, and bidding documents</p>
-          </div>
-        </div>
+     
+      <section className="relative h-[60vh] transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex justify-center items-center overflow-hidden">
+        {/* Dark overlay to blend with dark theme */}
+        <div className="absolute inset-0 bg-slate-900/80 z-0"></div>
+        {/* Cyber Grid Overlay */}
+        <div className="absolute inset-0 tech-grid-bg opacity-30 z-0"></div>
       </section>
 
       {/* Content Section */}
@@ -361,7 +358,7 @@ export default function Tenders() {
         <div className="max-w-[85%] mx-auto px-6">
           <div className="text-center mb-16">
             <Fade direction="down" triggerOnce duration={1000}>
-              <h1 className="text-5xl font-bold text-blue-900 mb-4">Tenders & Procurement</h1>
+              <h1 className="text-5xl font-bold text-blue-900 mb-4">Tenders</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Official tender notices, procurement opportunities, and bidding documents
               </p>

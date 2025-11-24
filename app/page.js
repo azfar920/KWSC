@@ -6,7 +6,7 @@ import Services from "@/components/Services";
 import Counter from "@/components/Counter";
 // import Slider from "@/components/Slider";
 import Subscribe from "@/components/Subscribe";
-import KWSCMap from "@/components/Kwscmap";
+import KWSCMap from "@/components/KWSCMAP";
 import NewsUpdate from "@/components/NewsUpdate";
 import Projects from "@/components/Projects";
 import MediaGallery from "@/components/MediaGallery";
