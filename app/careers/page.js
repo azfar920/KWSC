@@ -124,7 +124,7 @@ export default function Careers() {
         
         <div className="relative z-[1] max-w-5xl mx-auto px-6 text-center">
           <Fade direction="up" triggerOnce duration={1000} cascade damping={0.1}>
-            <h2 className="text-6xl md:text-8xl font-extrabold tracking-tight">
+               <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
               Careers at 
               <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">
                 KW&SC

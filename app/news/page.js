@@ -160,7 +160,7 @@ export default function News() {
                 <Globe className="w-3 h-3 animate-pulse" />
                 <span>KW&SC INFORMATION GRID</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+            <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-white">
               NEWS & UPDATES
             </h2>
             <p className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light">

@@ -75,7 +75,7 @@ export default function RightToInformation() {
     <>
       {loading && <Loader />}
       
-      <section className={`relative h-screen transition-opacity duration-700 bg-[url('/teentalwarkarachi.gif')] bg-cover text-white flex justify-center items-center`}>
+      <section className={`relative h-[60vh] transition-opacity duration-700 bg-[url('/teentalwarkarachi.gif')] bg-cover text-white flex justify-center items-center`}>
         <div className="absolute inset-0 bg-blue-900/60 z-0"></div>
         
         <div className="relative z-[1] max-w-[75%] m-20 mx-auto flex items-center justify-center text-center">

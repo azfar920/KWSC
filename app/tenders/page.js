@@ -358,7 +358,7 @@ export default function Tenders() {
         <div className="max-w-[85%] mx-auto px-6">
           <div className="text-center mb-16">
             <Fade direction="down" triggerOnce duration={1000}>
-              <h1 className="text-5xl font-bold text-blue-900 mb-4">Tenders</h1>
+      <h2 className="text-4xl md:text-6xl font-extrabold text-blue-900 tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>Tenders</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Official tender notices, procurement opportunities, and bidding documents
               </p>

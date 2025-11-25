@@ -19,7 +19,7 @@ export default function Home() {
       <Main/>
       {/* <Slider /> */}
      
-      <Services />
+      <Whoarewe />
       <NewsUpdate />
       <Projects />
       

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Loader from "@/components/Loader";
 import gsap from "gsap";
 import Link from "next/link";
@@ -7,18 +7,16 @@ import { Globe, MoveRight } from "lucide-react";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [language, setLanguage] = useState("en");
+  const [chatOpen, setChatOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { from: "bot", text: "Hello! I am KWSC Assistant. How can I help you today?" },
+  ]);
+  const [inputText, setInputText] = useState("");
+  const messagesEndRef = useRef(null);
 
-  const sideButtons = [
-    { title: "New Connection", link: "/new-connection" },
-    { title: "E-Complaint", link: "/e-complaint" },
-    { title: "Book Tanker", link: "/book-tanker" },
-    { title: "Get Your Bill", link: "/get-bill" },
-  ];
-
-  // Loader animation
   useEffect(() => {
     const loaderTimeline = gsap.timeline({ onComplete: () => setLoading(false) });
-
     loaderTimeline
       .fromTo(
         ".loader",
@@ -31,70 +29,178 @@ export default function Home() {
         duration: 0.5,
         ease: "power2.inOut",
       })
-      .to(
-        ".wrapper",
-        { y: "-100%", ease: "power4.inOut", duration: 1 },
-        "-=0.8"
-      );
+      .to(".wrapper", { y: "-100%", ease: "power4.inOut", duration: 1 }, "-=0.8");
   }, []);
 
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
+  const handleSendMessage = () => {
+    if (!inputText.trim()) return;
+
+    setMessages(prev => [...prev, { from: "user", text: inputText }]);
+    setInputText("");
+
+    setTimeout(() => {
+      setMessages(prev => [
+        ...prev,
+        { from: "bot", text: "Thank you for your message. Our team will get back to you shortly." },
+      ]);
+    }, 1000);
+  };
+
+  // Floating animation using inline style
+  const floatAnimation = {
+    animation: "float 3s ease-in-out infinite",
+  };
+
   return (
-    <div className="bg-[#020617] min-h-[70vh] font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-hidden relative">
+    <div className="bg-[#020617] min-h-[100vh] font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-hidden relative">
       {loading && <Loader />}
 
       {/* HERO SECTION */}
-      <section className="relative h-[70vh] transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex justify-center items-center overflow-hidden">
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-slate-900/80 z-0"></div>
+      <section
+        className="relative min-h-screen transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex flex-col items-center justify-start overflow-hidden px-6 pt-32"
+      >
+        {/* Language Toggle */}
+        <div className="absolute top-5 right-5 z-[50]">
+          <button
+            onClick={() => setLanguage(prev => (prev === "en" ? "ur" : "en"))}
+            className="px-3 py-1 rounded-md border border-cyan-400/30 bg-white/10 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
+          >
+            {language === "en" ? "اردو" : "English"}
+          </button>
+        </div>
 
-        {/* Cyber Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.1)1px,transparent 1px),linear-gradient(to_bottom,rgba(6,182,212,0.1)1px,transparent 1px)] bg-[length:40px_40px] mask-[radial-gradient(circle_at_center,_black_40%,_transparent_80%)] opacity-40 z-0"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-slate-900/50 z-0"></div>
+        <div
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.05)1px,transparent 1px),linear-gradient(to_bottom,rgba(6,182,212,0.05)1px,transparent 1px)] bg-[length:40px_40px] opacity-15 z-0 pointer-events-none"
+        ></div>
 
-        {/* RIGHT SIDE BUTTONS */}
-        <div className="absolute right-4 top-1/4 flex flex-col gap-4 z-[10]">
-          {sideButtons.map((btn, idx) => (
+        {/* Top Buttons */}
+        <div className="relative z-[20] flex flex-wrap justify-center gap-4 mb-10">
+          {["New Connection", "E-Complaint", "Book Tanker", "Get Your Bill"].map((btn, idx) => (
             <Link
               key={idx}
-              href={btn.link}
-              className="px-4 py-2 rounded-md border border-cyan-400 bg-white/10 text-cyan-400 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/20 hover:text-white hover:scale-105 transition-all duration-300 cursor-pointer"
+              href="#"
+              className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
             >
-              {btn.title}
+              {btn}
             </Link>
           ))}
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-[1] max-w-5xl mx-auto text-center px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-6 backdrop-blur-md">
-            <Globe className="w-3 h-3 animate-pulse" />
+        {/* Glass Panel */}
+        <div
+          className="relative z-[30] w-full max-w-3xl mx-auto p-10 rounded-3xl
+            bg-white/5 backdrop-blur-sm border border-white/5 ring-1 ring-white/10
+            flex flex-col items-center text-center shadow-lg"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full 
+            bg-cyan-950/20 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-6">
+            <Globe className="w-4 h-4" />
             <span>KARACHI WATER & SEWERAGE CORPORATION</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
-            COMMITTED TO DELIVER!
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
+            COMMITTED TO DELIVER
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light">
-            Ensuring clean, safe water supply and efficient sewerage services for Karachi.
+          <p className="mt-4 text-base md:text-lg text-slate-200 max-w-2xl mx-auto font-light leading-relaxed">
+            Ensuring a reliable, clean water supply and modern sewerage services across Karachi — focused on integrity, sustainability, and public trust.
           </p>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8">
             <Link
               href="/aboutus"
-              className="relative z-20 text-[18px] px-6 py-3 border-2 border-cyan-400 rounded-lg font-bold 
-              hover:-translate-y-1 hover:border-cyan-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] transition-all duration-300 ease-in-out 
-              inline-flex group items-center pl-6 bg-white/10 backdrop-blur-sm hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30 cursor-pointer"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-lg border border-white/10
+                bg-white/5 hover:bg-white/10 backdrop-blur-sm font-semibold text-white transition-all duration-200"
             >
-              Learn About KW&SC
-              <span className="ml-3 w-0 overflow-hidden transition-all duration-300 delay-75 ease-in-out group-hover:min-w-8 group-hover:w-8">
-                <MoveRight size={40} />
-              </span>
+              <span className="whitespace-nowrap">Learn About KW&amp;SC</span>
+              <MoveRight size={20} />
             </Link>
           </div>
         </div>
 
-        {/* Decorative bottom fade */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#020617] to-transparent z-10"></div>
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-[#020617] to-transparent z-10"></div>
+
+        {/* ---------------- CHAT BOT ---------------- */}
+        <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-center">
+          <button
+            onClick={() => setChatOpen(prev => !prev)}
+            style={floatAnimation}
+            className="w-24 h-24 rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(6,182,212,0.7)] hover:scale-110"
+            title="Chat with KWSC Assistant"
+          >
+            <img
+              src="/Ai_Bot.png"
+              alt="KWSC Assistant"
+              className="w-full h-full object-cover"
+            />
+          </button>
+
+          {/* Chat Window */}
+          {chatOpen && (
+            <div className="mt-3 w-96 bg-gray-100 rounded-2xl border border-gray-300 shadow-2xl flex flex-col overflow-hidden animate-slide-in">
+              <div className="px-4 py-3 bg-gray-200 text-gray-800 font-semibold flex justify-between items-center border-b border-gray-300">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full overflow-hidden">
+                    <img src="/Ai_Bot.png" alt="KWSC Assistant" className="w-full h-full object-cover" />
+                  </div>
+                  <span>KWSC Assistant</span>
+                </div>
+                <button onClick={() => setChatOpen(false)} className="text-gray-600 font-bold text-lg">&times;</button>
+              </div>
+
+              <div className="flex-1 p-4 overflow-y-auto space-y-2 max-h-80 bg-gray-50">
+                {messages.map((msg, idx) => (
+                  <div key={idx} className={`flex ${msg.from === "bot" ? "justify-start" : "justify-end"}`}>
+                    <div className={`px-4 py-2 rounded-2xl max-w-xs break-words ${
+                      msg.from === "bot"
+                        ? "bg-gray-300 text-gray-900"
+                        : "bg-cyan-500 text-white"
+                    }`}>
+                      {msg.text}
+                    </div>
+                  </div>
+                ))}
+                <div ref={messagesEndRef} />
+              </div>
+
+              <div className="px-4 py-3 border-t border-gray-300 flex items-center gap-2 bg-gray-200">
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={e => setInputText(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && handleSendMessage()}
+                  placeholder="Type your message..."
+                  className="flex-1 px-3 py-2 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+                <button
+                  onClick={handleSendMessage}
+                  className="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all duration-200"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Floating animation keyframes in global style */}
+        <style>
+          {`
+            @keyframes float {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-20px); }
+            }
+          `}
+        </style>
       </section>
     </div>
   );

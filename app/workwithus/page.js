@@ -121,8 +121,7 @@ export default function WorkWithUs() {
             <motion.h1 
                 variants={itemVariants} 
                 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-6 
-                           text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 
-                           drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]"
+                           text-transparent bg-clip-text bg-white"
             >
               Collaborate on Karachi's Infrastructure
             </motion.h1>

@@ -93,7 +93,7 @@ export default function Achievements() {
               </span>
             </h2>
             <p className="mt-4 text-xl md:text-2xl text-blue-200/90 font-light font-mono">
-              // EVOLVING KARACHI'S INFRASTRUCTURE
+               EVOLVING KARACHI'S INFRASTRUCTURE
             </p>
           </Fade>
         </div>
@@ -155,7 +155,7 @@ export default function Achievements() {
                   {/* Footer Line with Accent */}
                   <div className="mt-6 pt-4 border-t border-cyan-500/30">
                     <span className="text-xs font-mono text-cyan-400">
-                        // INITIATIVE COMPLETE
+                        INITIATIVE COMPLETE
                     </span>
                   </div>
                 </div>

@@ -36,7 +36,7 @@ export default function WaterToday() {
       >
         <div className="absolute inset-0 bg-blue-900/80 z-0 backdrop-blur-sm"></div>
         <div className="relative z-[1] text-center px-6 max-w-5xl">
-          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
             Water Today
           </h2>
           <p className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light">

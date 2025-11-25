@@ -98,10 +98,7 @@ const Navbar = () => {
     { 
       href: "/contact", 
       text: "Contact",
-      submenu: [
-        { href: "/contact", text: "Contact Us" },
-        
-      ]
+      
     },
   ];
 

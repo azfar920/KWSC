@@ -6,7 +6,8 @@ import { Globe } from "lucide-react";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Workflow from "@/components/Workflow";
-import Whoarewe from "@/components/Whoarewe";
+import Workwithus from "@/components/Workwithus";
+import Developmentworks from "@/components/Developmentworks";
 
 export default function WhatWeDo() {
   const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function WhatWeDo() {
             <span>KW&SC CORE</span>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+           <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
             WHAT WE DO
           </h2>
 
@@ -66,8 +67,9 @@ export default function WhatWeDo() {
 
      <Services />
      <Projects /> 
-   
-     <Whoarewe />
+   <Workwithus />
+   <Developmentworks />
+     
 
 
     </>

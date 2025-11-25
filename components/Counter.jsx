@@ -21,9 +21,7 @@ const Counter = () => {
       </div>
 
       <div className="max-w-[90%] mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 text-center mb-16">
-          Our Achievements
-        </h2>
+      
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           {counter_data.map((item, i) => (

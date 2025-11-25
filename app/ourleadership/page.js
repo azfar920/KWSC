@@ -60,12 +60,12 @@ export default function Leadership() {
         <div className="absolute inset-0 tech-grid-bg opacity-30 z-0"></div>
 
         <div className="relative z-[1] max-w-5xl mx-auto text-center px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-6 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan text-xs font-mono mb-6 backdrop-blur-md">
             <Globe className="w-3 h-3 animate-pulse" />
             <span>KW&SC LEADERSHIP CORE</span>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-white drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
             OUR LEADERSHIP
           </h2>
 

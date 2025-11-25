@@ -1,11 +1,8 @@
 import React from "react";
-// FIX: Using standard 'a' tags for links as 'next/link' is unresolved
-// FIX: Using standard 'img' tag as 'next/image' is unresolved
 import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Youtube, ExternalLink } from "lucide-react";
 
-// Social media data for KW&SC
+// Social media data
 const social_links = [
-  // Adjusted colors for contrast on a light background
   { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/kwscofficial", color: "text-blue-700 hover:text-blue-500" },
   { name: "Twitter", icon: Twitter, href: "https://twitter.com/kwscofficial", color: "text-sky-600 hover:text-sky-400" },
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/kwsc", color: "text-blue-800 hover:text-blue-600" },
@@ -20,27 +17,23 @@ const footer_data = {
     "Karachi Water and Sewerage Corporation (KW&SC) is committed to providing reliable water and sewerage services to Karachi, ensuring clean water and efficient sewerage management for all residents.",
 };
 
-// Placeholder for the CopyRight component as it wasn't provided
 const CopyRight = () => (
-    <p className="text-gray-500 text-sm">
+    <p className="text-gray-500 text-sm font-montserrat">
         &copy; {new Date().getFullYear()} KW&SC. All Rights Reserved.
     </p>
 );
 
 const Footer = () => {
   return (
-    // Switched to a light background color and dark text color
-    <footer className="bg-gray-50 text-gray-700 pt-20 font-sans relative overflow-hidden shadow-lg">
-      {/* Abstract wave or shape for visual interest - now a lighter accent border */}
+    <footer className="bg-gray-50 text-gray-700 pt-20 font-montserrat relative overflow-hidden shadow-lg">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600"></div>
 
-      <div className=" max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
-          {/* 1. Company Info & Logo */}
+          {/* Company Info & Logo */}
           <div className="lg:col-span-1">
             <div className="mb-8">
-              {/* Using standard <img> tag */}
               <img
                 src={"/kwsc logo.png"}
                 width={150}
@@ -54,10 +47,9 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 2. Contact Information */}
+          {/* Contact Information */}
           <div className="lg:col-span-1">
-            {/* Updated title color and border accent for light theme */}
-            <h3 className="text-xl font-extrabold text-blue-600 mb-6 border-l-4 border-cyan-500 pl-3">Get In Touch</h3>
+            <h3 className="text-xl font-normal mb-6 border-l-4 border-cyan-500 pl-3">Get In Touch</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="text-cyan-500 mt-1 flex-shrink-0" size={20} />
@@ -80,12 +72,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 3. Quick Links (Simplified) */}
+          {/* Quick Links */}
           <div className="lg:col-span-1">
-            {/* Updated title color and border accent for light theme */}
-            <h3 className="text-xl font-extrabold text-blue-600 mb-6 border-l-4 border-cyan-500 pl-3">Quick Navigation</h3>
+            <h3 className="text-xl font-normal mb-6 border-l-4 border-cyan-500 pl-3">Quick Navigation</h3>
             <div className="space-y-3">
-              {/* Using standard <a> tag */}
               {[
                 { label: "About Us", href: "/aboutus" },
                 { label: "What We Do", href: "/ourservices" },
@@ -94,19 +84,17 @@ const Footer = () => {
                 { label: "News & Updates", href: "/news" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item, index) => (
-                <a key={index} href={item.href} className="block text-gray-600 hover:text-blue-600 transition-colors text-base font-medium group">
+                <a key={index} href={item.href} className="block text-gray-600 hover:text-blue-600 transition-colors text-base font-normal group">
                     <span className="group-hover:translate-x-1 transition-transform inline-block text-cyan-500">→</span> {item.label}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* 4. Social Media & External Resources */}
+          {/* Social Media & External Resources */}
           <div className="lg:col-span-1">
-            {/* Updated title color and border accent for light theme */}
-            <h3 className="text-xl font-extrabold text-blue-600 mb-6 border-l-4 border-cyan-500 pl-3">Stay Connected</h3>
+            <h3 className="text-xl font-normal mb-6 border-l-4 border-cyan-500 pl-3">Stay Connected</h3>
             
-            {/* Social Icons Section - Adjusted background/border for light theme */}
             <div className="flex space-x-4 mb-8">
               {social_links.map((link) => (
                 <a
@@ -122,8 +110,7 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* External Links */}
-            <h4 className="text-lg font-bold text-gray-600 mb-4">Official Portals</h4>
+            <h4 className="text-lg font-normal mb-4">Official Portals</h4>
             <div className="space-y-3">
                 {[
                     { label: "Online Complaint System", href: "https://complain.kwsc.gos.pk" },
@@ -135,7 +122,7 @@ const Footer = () => {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium flex items-center gap-2"
+                        className="block text-gray-500 hover:text-blue-600 transition-colors text-sm font-normal flex items-center gap-2"
                     >
                         {item.label} <ExternalLink size={14} className="flex-shrink-0" />
                     </a>
@@ -146,7 +133,6 @@ const Footer = () => {
 
         </div>
 
-        {/* Copyright and Bottom Border - Adjusted border color */}
         <div className="border-t border-gray-200 py-8 text-center">
           <CopyRight />
         </div>

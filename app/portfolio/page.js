@@ -35,7 +35,7 @@ const page = () => {
       {loading && <Loader />}  {/* Use the Loader component */}
 
       <section
-        className={`relative h-screen transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover text-white flex justify-center items-center`}
+        className={`relative h-[70vh] transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover text-white flex justify-center items-center`}
       >
         <div className="absolute inset-0 bg-blue-900/60 z-0"></div>
 
@@ -51,6 +51,7 @@ const page = () => {
           </div>
         </div>
       </section>
+      
 
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 py-20">
         <div className="max-w-[85%] mx-auto px-6">

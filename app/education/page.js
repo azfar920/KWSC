@@ -4,7 +4,7 @@ import Loader from "@/components/Loader";
 import gsap from "gsap";
 import { Fade } from "react-awesome-reveal";
 
-export default function WaterToday() {
+export default function Education() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,19 +18,19 @@ export default function WaterToday() {
 
   const posts = [
     {
-      title: "Clean Water Initiatives",
-      description: "KW&SC ensures safe and potable water for all citizens through modern filtration and distribution systems.",
-      image: "/images/clean-water.jpg",
+      title: "Water Conservation Workshops",
+      description: "KW&SC conducts interactive workshops for schools and communities, teaching smart water usage and leak detection techniques to promote sustainable water practices.",
+      image: "/images/workshop.jpg",
     },
     {
-      title: "Sustainable Sewerage Management",
-      description: "Innovative sewerage solutions reduce contamination and improve the city’s sanitation standards.",
-      image: "/images/sewerage.jpg",
+      title: "Educational Seminars",
+      description: "Regular seminars and webinars educate citizens about Karachi’s water supply system, sewerage management, and the importance of environmental sustainability.",
+      image: "/images/seminar.jpg",
     },
     {
-      title: "Community Awareness",
-      description: "Educational programs raise awareness on water conservation and hygiene practices in local communities.",
-      image: "/images/community-education.jpg",
+      title: "Digital Learning & Awareness",
+      description: "Online resources, infographics, and e-learning modules help students and the public understand water treatment, wastewater management, and smart city water solutions.",
+      image: "/images/digital-learning.jpg",
     },
   ];
 
@@ -38,25 +38,25 @@ export default function WaterToday() {
     <>
       {loading && <Loader />}
 
-      {/* Hero Banner (News-style) */}
-      <section className="relative h-[60vh] md:h-[80vh] bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex justify-center items-center overflow-hidden">
+      {/* Hero Banner */}
+      <section className="relative h-[40vh] md:h-[60vh] bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex justify-center items-center overflow-hidden">
         <div className="absolute inset-0 bg-slate-900/80 z-0"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to right, rgba(6,182,212,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(6,182,212,0.1) 1px, transparent 1px)] bg-[size:40px_40px] opacity-30 z-0"></div>
         <div className="relative z-[1] max-w-4xl text-center px-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-6 backdrop-blur-md">
-            KW&SC INFORMATION GRID
+            KW&SC EDUCATION INITIATIVES
           </div>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 drop-shadow-[0_0_25px_rgba(6,182,212,0.5)]">
-            WATER TODAY
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
+            EDUCATION 
           </h2>
           <p className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light">
-            Real-time insights into KW&SC’s water and sewerage initiatives shaping Karachi’s future.
+            Learn about KW&SC's programs to educate students, citizens, and communities on water conservation, sanitation, and sustainable practices.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#020617] to-transparent z-10"></div>
       </section>
 
-      {/* Simple Water Today Posts */}
+      {/* Educational Posts */}
       <section className="bg-[#020617] text-white py-20">
         <div className="max-w-6xl mx-auto px-6 space-y-16">
           {posts.map((post, i) => (
