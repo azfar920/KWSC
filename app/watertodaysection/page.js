@@ -49,33 +49,33 @@ export default function WaterToday() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 space-y-12 text-gray-800">
           
-          <div>
+          <div width="50%">
             <img
-              src="/watertoday/blog1.jpg"
+              src="/filtration.jpg"
               alt="Water Filtration Plant"
-              className="w-full rounded-lg mb-6"
+              className="w-1/2 rounded-lg mb-6"
             />
             <p className="text-lg leading-relaxed">
               KW&SC continues to upgrade Karachi’s water infrastructure, ensuring every household has access to clean and reliable water. From modern filtration plants to network expansion, the focus remains on quality and efficiency.
             </p>
           </div>
 
-          <div>
+          <div width>
             <img
-              src="/watertoday/blog2.jpg"
+              src="/community.jpeg"
               alt="Community Water Programs"
-              className="w-full rounded-lg mb-6"
+              className="w-1/2 rounded-lg mb-6"
             />
             <p className="text-lg leading-relaxed">
               Community awareness and engagement are at the heart of our initiatives. KW&SC regularly conducts programs to educate citizens about water conservation and safe sanitation practices, fostering a culture of sustainability.
             </p>
           </div>
 
-          <div>
+          <div width="50%">
             <img
-              src="/watertoday/blog3.jpg"
+              src="/emergency.png"
               alt="Emergency Water Services"
-              className="w-full rounded-lg mb-6"
+              className="w-1/2 rounded-lg mb-6"
             />
             <p className="text-lg leading-relaxed">
               Emergency response services ensure that water supply issues are addressed promptly across Karachi. KW&SC teams operate around the clock to restore services, repair pipelines, and maintain sewerage systems, safeguarding public health.

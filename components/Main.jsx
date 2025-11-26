@@ -5,13 +5,18 @@ import gsap from "gsap";
 import Link from "next/link";
 import { Globe, MoveRight } from "lucide-react";
 
+import GetYourBillPopup from "@/components/GetYourBill";
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("en");
   const [chatOpen, setChatOpen] = useState(false);
+  const [showBillPopup, setShowBillPopup] = useState(false);
+
   const [messages, setMessages] = useState([
     { from: "bot", text: "Hello! I am KWSC Assistant. How can I help you today?" },
   ]);
+
   const [inputText, setInputText] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -52,7 +57,6 @@ export default function Home() {
     }, 1000);
   };
 
-  // Floating animation using inline style
   const floatAnimation = {
     animation: "float 3s ease-in-out infinite",
   };
@@ -61,7 +65,6 @@ export default function Home() {
     <div className="bg-[#020617] min-h-[100vh] font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-hidden relative">
       {loading && <Loader />}
 
-      {/* HERO SECTION */}
       <section
         className="relative min-h-screen transition-opacity duration-700 bg-[url('/karachicharminar.gif')] bg-cover bg-center text-white flex flex-col items-center justify-start overflow-hidden px-6 pt-32"
       >
@@ -83,16 +86,42 @@ export default function Home() {
 
         {/* Top Buttons */}
         <div className="relative z-[20] flex flex-wrap justify-center gap-4 mb-10">
-          {["New Connection", "E-Complaint", "Book Tanker", "Get Your Bill"].map((btn, idx) => (
-            <Link
-              key={idx}
-              href="#"
-              className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
-            >
-              {btn}
-            </Link>
-          ))}
+          <Link
+            href="/NewConnectionPage"
+            className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
+          >
+            New Connection
+          </Link>
+
+          <Link
+            href="/EComplaintPage"
+            className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
+          >
+            E-Complaint
+          </Link>
+
+          {/* Book Tanker Page */}
+          <Link
+            href="/BookTankerPage"
+            className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
+          >
+            Book Tanker
+          </Link>
+
+          {/* Get Your Bill Popup */}
+          <button
+            onClick={() => setShowBillPopup(true)}
+            className="px-5 py-2.5 rounded-md border border-cyan-400/30 bg-white/5 text-cyan-300 text-sm font-medium backdrop-blur-sm hover:bg-cyan-500/10 hover:text-white transition-all duration-200"
+          >
+            Get Your Bill
+          </button>
         </div>
+
+        {/* Get Your Bill Popup */}
+        <GetYourBillPopup
+          open={showBillPopup}
+          onClose={() => setShowBillPopup(false)}
+        />
 
         {/* Glass Panel */}
         <div
@@ -106,7 +135,10 @@ export default function Home() {
             <span>KARACHI WATER & SEWERAGE CORPORATION</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight" style={{ fontFamily: "Roboto, sans-serif" }}>
+          <h1
+            className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight"
+            style={{ fontFamily: "Roboto, sans-serif" }}
+          >
             COMMITTED TO DELIVER
           </h1>
 
@@ -129,7 +161,7 @@ export default function Home() {
         {/* Bottom Fade */}
         <div className="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-[#020617] to-transparent z-10"></div>
 
-        {/* ---------------- CHAT BOT ---------------- */}
+        {/* CHAT BOT */}
         <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-center">
           <button
             onClick={() => setChatOpen(prev => !prev)}
@@ -144,7 +176,6 @@ export default function Home() {
             />
           </button>
 
-          {/* Chat Window */}
           {chatOpen && (
             <div className="mt-3 w-96 bg-gray-100 rounded-2xl border border-gray-300 shadow-2xl flex flex-col overflow-hidden animate-slide-in">
               <div className="px-4 py-3 bg-gray-200 text-gray-800 font-semibold flex justify-between items-center border-b border-gray-300">
@@ -160,11 +191,13 @@ export default function Home() {
               <div className="flex-1 p-4 overflow-y-auto space-y-2 max-h-80 bg-gray-50">
                 {messages.map((msg, idx) => (
                   <div key={idx} className={`flex ${msg.from === "bot" ? "justify-start" : "justify-end"}`}>
-                    <div className={`px-4 py-2 rounded-2xl max-w-xs break-words ${
-                      msg.from === "bot"
-                        ? "bg-gray-300 text-gray-900"
-                        : "bg-cyan-500 text-white"
-                    }`}>
+                    <div
+                      className={`px-4 py-2 rounded-2xl max-w-xs break-words ${
+                        msg.from === "bot"
+                          ? "bg-gray-300 text-gray-900"
+                          : "bg-cyan-500 text-white"
+                      }`}
+                    >
                       {msg.text}
                     </div>
                   </div>
@@ -192,7 +225,6 @@ export default function Home() {
           )}
         </div>
 
-        {/* Floating animation keyframes in global style */}
         <style>
           {`
             @keyframes float {

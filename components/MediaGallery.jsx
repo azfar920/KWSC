@@ -4,14 +4,14 @@ import { ChevronRight, Sun, Moon } from 'lucide-react';
 
 // Mock data for leaders and their images
 const leadersData = [
-    { name: "Syed Nasir Hussain Shah", title: "Minister LG&HD", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+1" },
+    { name: "Murtaza Wahab", title: "Mayor Of Karachi", imageUrl: "/mayor.png" },
     { name: "Ahmed Ali Siddiqui", title: "MD KW&SC", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+2" },
-    { name: "Abdul Jabbar Shah", title: "COO KW&SC", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+3" },
-    { name: "Engr. Asadullah Khan", title: "DMD (T/P&D)", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+4" },
-    { name: "Dr. Syed Saif ur Rehman", title: "Administrator KMC", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+5" },
-    { name: "Hafiz Muhammad Ilyas", title: "Chief Engineer (Water)", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+6" },
-    { name: "Naseer Ahmed", title: "Chief Engineer (Sewerage)", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+7" },
-    { name: "Muhammad Sohail", title: "Chief Engineer (M&E)", imageUrl: "https://placehold.co/150x150/0f172a/94a3b8?text=Leader+8" },
+    { name: "Asadullah Khan", title: "COO KW&SC", imageUrl: "asadullah.png" },
+    { name: "Syed Imran Iqbal Zaidi", title: "DMD (RRG)", imageUrl: "syed imran.jpg" },
+    { name: "Khalid Hyder Shah", title: "Additional Chief Secretary", imageUrl: "khalid hyder.png" },
+    { name: "Sibghatullah Mahar", title: "Secretary Panning and Development", imageUrl: "sibghatullah.png" },
+    { name: "Fayaz Ahmed", title: "Secretary Finance Department", imageUrl: "Fayaz Ahmed.jpg" },
+    { name: "Shariq Ahmed", title: "Director General ABADIS Authority", imageUrl: "shariq-ahmed (1).png" },
 ];
 
 export default function MediaGallery() {

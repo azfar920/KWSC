@@ -150,7 +150,7 @@ export default function Home() {
 
   <div className="max-w-6xl mx-auto px-6 relative z-10">
     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center tracking-tight">
-      Water Today – Daily Water Supply Status
+      Water Today
     </h2>
 
     <div className="rounded-3xl bg-white shadow-xl p-6 lg:p-10 border border-gray-200 flex flex-col lg:flex-row items-center gap-8 transition-all hover:shadow-2xl">
